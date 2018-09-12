@@ -1,50 +1,46 @@
+{% extends "./base.html" %}
 
-<html>
-    <head>
-        <title>Post & Responses</title>
-        <link rel="stylesheet" href="css/bootstrap.css" />
-    </head>
-    <body>
-
-        <div class="bs-docs-header" id="content" tabindex="-1"> 
-            <div class="container">
-                <h1>Post & Responses</h1> 
-                <p></p>
-            </div>
+{% block content %}
+    <div class="bs-docs-header" id="content" tabindex="-1"> 
+        <div class="container">
+            <h1>Post & Responses</h1> 
+            <p></p>
         </div>
+    </div>
 
-        <div class="container bs-docs-container">
-            <div class="row">
-                <div class="col-md-9">
+    <div class="container bs-docs-container">
+        <div class="row">
+            <div class="col-md-9">
 
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            Responses
-                            <div class="pull-right">
-                                <a class="btn btn-xs btn-primary" href="/add-response/{{post_id}}">Add response</a>
-                                <a class="btn btn-xs btn-primary" href="/">Back to Posts</a>
-                            </div>
-                        </div>
-                        
-                        <div class="panel-body">
-                            <ul class="list-group">
-                            {% for item in responses %}
-                                <li class="list-group-item">
-                                    <h4 class="list-group-item-heading">
-                                        {{ item.response_content }}
-                                        <small>Created at: {{ item.created_at | date("F d Y g:ia") }}</small>
-                                    </h4>
-                                </li>
-                            {% endfor %}
-                            </ul>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Responses
+                        <div class="pull-right">
+                            <a class="btn btn-xs btn-primary" href="/add-response/{{post_id}}">Add response</a>
+                            <a class="btn btn-xs btn-primary" href="/">Back to Posts</a>
                         </div>
                     </div>
+                    
+                    <div class="panel-body">
+                        <ul class="list-group">
+                        {% for item in responses %}
+                            <li class="list-group-item">
+                                <h4 class="list-group-item-heading">
+                                    {{ item.response_content }}
+                                    <small>Created at: {{ item.created_at | date("F d Y g:ia") }}</small>
+                                </h4>
+                            </li>
+                        {% endfor %}
+                        </ul>
+                    </div>
+                </div>
 
-                </div>
-                <div class="col-md-3">
-                </div>
+            </div>
+            <div class="col-md-3">
             </div>
         </div>
-    </body>
-</html>
+    </div>
+{% endblock %}
+
+
 

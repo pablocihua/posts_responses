@@ -1,18 +1,22 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    {% block head %}
-    <link rel="stylesheet" href="style.css" />
-    <title>{% block 'title' %}{% endblock %} - My Webpage</title>
-    {% endblock %}
-</head>
+    <head>
+        {% block head %}
+        <base href="/">
+        <!-- <link rel="stylesheet" href="style.css" /> -->
+        <title>Post & Responses</title>
+            {% block stylesheets %}
+                <link rel="stylesheet" href="css/bootstrap.css" type="text/css" rel="stylesheet" />
+            {% endblock %}
+        {% endblock %}
+    </head>
 
-<body>
-    <div id="content">{% block content %}{% endblock %}</div>
-    <div id="footer">
-        {% block footer %} &copy; Copyright 2011 by <a href="http://domain.invalid/">you</a>. {% endblock %}
-    </div>
-</body>
+    <body>
+        <div id="content">{% block content %}{% endblock %}</div>
+        <div id="footer">
+            {% block footer %} &copy; Copyright 2018 by <a href="/">Company</a>. {% endblock %}
+        </div>
+    </body>
 
 </html>

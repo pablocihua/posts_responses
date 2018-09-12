@@ -1,7 +1,19 @@
-Message of the moment: <b>{{ posts.posts }}</b>
 
-        <ul >
-        {% for item in posts %}
-            <li>{{ item.post_content }}</li>
-        {% endfor %}
-        </ul>
+<div>
+    <a href="add-post">Add Post</a>
+</div>
+
+<ul >
+{% for item in posts %}
+    <li>
+        {{ item.post_content }}
+        <a href="add-response/{{item.post_id}}">Responses</a>
+        <small>{{ item.responses_count }}</small>
+        {% if item.responses_count > 0%}
+        <a href="list-responses/{{item.post_id}}">View</a>
+        {% endif %}
+
+        <small>Created at: {{ item.created_at }}</small>
+    </li>
+{% endfor %}
+</ul>

@@ -1,8 +1,45 @@
-<form action="/create-response" method="post">
-    <label>Response</label>
-    <input type="text" name="response_content">
-    <input type="hidden" name="post_id" value="{{post_id}}">
-    <button type="submit">Add {{post_id}}</button>
-</form>
+{% extends "./base.html" %}
 
-<a class="btn btn-xs btn-primary" href="/">Back to Posts</a>
+{% block content %}
+
+
+<div class="bs-docs-header" id="content" tabindex="-1"> 
+        <div class="container">
+            <h1>Post & Responses</h1> 
+            <p></p>
+        </div>
+    </div>
+
+    <div class="container bs-docs-container">
+        <div class="row">
+            <div class="col-md-9">
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Post And Responses
+                        <div class="pull-right">
+                            <a class="btn btn-xs btn-primary" href="add-post">Add Post</a>
+                        </div>
+                    </div>
+                    
+                    <div class="panel-body">
+
+                        <form action="/create-response" method="post">
+                            <div class="form-group">
+                                <label>Response</label>
+                                <input class="form-control" type="text" name="response_content">
+                                <input type="hidden" name="post_id" value="{{post_id}}">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Add {{post_id}}</button>
+                            <a class="btn btn-default pull-right" href="/">Back to Posts</a>
+                        </form>
+
+                    </div>
+                </div>
+                
+            </div>
+            <div class="col-md-3">
+            </div>
+        </div>
+    </div>
+{% endblock %}

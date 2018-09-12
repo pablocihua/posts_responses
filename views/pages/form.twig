@@ -1,7 +1,43 @@
-<form action="create-post" method="post">
-    <label>Post</label>
-    <input type="text" name="post_content">
-    <button type="submit">Add</button>
-</form>
+{% extends "./base.html" %}
 
-<a class="btn btn-xs btn-primary" href="/">Back to Posts</a>
+{% block content %}
+
+    <div class="bs-docs-header" id="content" tabindex="-1"> 
+        <div class="container">
+            <h1>Post & Responses</h1> 
+            <p></p>
+        </div>
+    </div>
+
+    <div class="container bs-docs-container">
+        <div class="row">
+            <div class="col-md-9">
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Post And Responses
+                        <div class="pull-right">
+                            <a class="btn btn-xs btn-primary" href="add-post">Add Post</a>
+                        </div>
+                    </div>
+                    
+                    <div class="panel-body">
+
+                        <form action="create-post" method="post">
+                            <div class="form-group">
+                                <label>Post</label>
+                                <input class="form-control" type="text" name="post_content">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Add</button>
+                            <a class="btn btn-default pull-right" href="/">Back to Posts</a>
+                        </form>
+
+                    </div>
+                </div>
+                
+            </div>
+            <div class="col-md-3">
+            </div>
+        </div>
+    </div>
+{% endblock %}

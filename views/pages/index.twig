@@ -1,0 +1,7 @@
+Message of the moment: <b>{{ posts.posts }}</b>
+
+        <ul >
+        {% for item in posts %}
+            <li>{{ item.post_content }}</li>
+        {% endfor %}
+        </ul>

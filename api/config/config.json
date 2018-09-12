@@ -1,0 +1,12 @@
+{
+    "database": {
+        "mysql": {
+            "posts_responses": {
+                "host": "localhost",
+                "user": "root",
+                "password": "1957",
+                "database": "posts_responses"
+            }
+        }
+    }
+}

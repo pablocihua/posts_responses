@@ -29,7 +29,6 @@ const PostModel = {
     addPost: (post) => {
         return new Promise((resolve, reject) => {
             let sql = "Insert Into posts SET?";
-            console.log(post)
             connection_mysql.query(sql, post, (err, result) => {
                 if (err) {
                     reject(err);
@@ -42,7 +41,6 @@ const PostModel = {
     updatePost: (id, data) => {
         return new Promise((resolve, reject) => {
             let sql = 'Update posts Set responses_count = ? Where post_id = ?';
-            console.log(data);
             connection_mysql.query(sql, [data.responses_count, id], (err, result) => {
                 if (err) {
                     reject(err);

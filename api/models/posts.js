@@ -9,9 +9,14 @@ const { connection_mysql } = require('../config/mysql');
 }); */
 
 const PostModel = {
-    getPosts: () => {
+    getPosts: (id = null) => {
+        let where = '';
+        if (id !== null) {
+            where = `Where post_id = ${ id }`;
+        }
+
         return new Promise((resolve, reject) => {
-            let sql = 'Select * from posts';
+            let sql = 'Select * from posts ' + where;
             connection_mysql.query(sql, (err, rows) => {
                 if (err) {
                     return reject(err);

@@ -16,7 +16,7 @@
 
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        Post And Responses
+                        {{ post.post_content }}
                         <div class="pull-right">
                             <a class="btn btn-xs btn-primary" href="add-post">Add Post</a>
                         </div>
@@ -28,9 +28,9 @@
                             <div class="form-group">
                                 <label>Response</label>
                                 <input class="form-control" type="text" name="response_content">
-                                <input type="hidden" name="post_id" value="{{post_id}}">
+                                <input type="hidden" name="post_id" value="{{post.post_id}}">
                             </div>
-                            <button type="submit" class="btn btn-primary">Add {{post_id}}</button>
+                            <button type="submit" class="btn btn-primary">Add</button>
                             <a class="btn btn-default pull-right" href="/">Back to Posts</a>
                         </form>
 

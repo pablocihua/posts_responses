@@ -20,6 +20,11 @@ const postsCtrl = {
                 console.log('There is a error to get the posts ', err);
             }); */
     },
+    getPost: async ( id ) => {
+        let post = await PostModel.getPosts( id );
+
+        return post[0];
+    },
     addPost: (req, res) => {
         res.render('pages/form.twig');
     },

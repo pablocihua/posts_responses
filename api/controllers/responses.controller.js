@@ -4,14 +4,17 @@ const ResponseModel = require('../models/responses'),
 
 const responsesCtrl = {
     addResponse: async(req, res) => {
+        let post = await PostCtrl.getPost( req.params.id );
         res.render('pages/form.response.twig', {
-            post_id: req.params.id
+            post
         });
     },
     listResponses: async(req, res) => {
+        let post = await PostCtrl.getPost( req.params.id );
         res.render('pages/list.responses.twig', {
             post_id: req.params.id,
-            responses: responsesCtrl.getResponses(req.params.id)
+            responses: responsesCtrl.getResponses(req.params.id),
+            post
         });
     },
     createResponse: async(req, res) => {

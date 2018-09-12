@@ -6,25 +6,23 @@ const express = require('express'),
 const routerPosts = require('./api/routes/posts'),
     routerResponse = require('./api/routes/responses');
 
-app.set("twig options", {
+app.set('port', process.env.PORT || 3000 );
+app.set('views', __dirname + '/views');
+app.set('view engine', 'twig');
+
+// This section is optional and can be used to configure twig.
+app.set('twig options', {
     allow_async: true,
-    strict_variables: false
+    strict_variables: true
 });
 
-// app.get('/', ( req, res ) => {
-//     res.render('pages/index.twig', {
-//         message: "Hello World"
-//     });
-// });
-
 app.use(express.static(__dirname + '/public'));
-
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use('/', routerResponse);
 app.use('/', routerPosts);
 
-app.listen('3000', () => {
-    console.log('Server started on port 3000');
+app.listen( app.get('port'), () => {
+    console.log('Server RUNING on port: ' + app.get('port'));
 });

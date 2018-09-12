@@ -5,7 +5,6 @@ const ResponseModel = {
     addResponse: (response) => {
         return new Promise((resolve, reject) => {
             let sql = "Insert Into responses SET?";
-            console.log('f ', response);
             connection_mysql.query(sql, response, (err, result) => {
                 if (err) {
                     reject(err);

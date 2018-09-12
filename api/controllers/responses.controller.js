@@ -4,13 +4,11 @@ const ResponseModel = require('../models/responses'),
 
 const responsesCtrl = {
     addResponse: async(req, res) => {
-        console.log(req.params)
         res.render('pages/form.response.twig', {
             post_id: req.params.id
         });
     },
     listResponses: async(req, res) => {
-        console.log(req.params)
         res.render('pages/list.responses.twig', {
             post_id: req.params.id,
             responses: responsesCtrl.getResponses(req.params.id)
@@ -27,16 +25,15 @@ const responsesCtrl = {
             response = await ResponseModel.addResponse(response);
 
             let responses = await responsesCtrl.getResponses(body.post_id);
-            console.log(responses);
             // Update post
-            let resp = await PostModel.updatePost(body.post_id, { responses_count: responses.length }),
-                posts = await PostCtrl.getPosts();
+            let resp = await PostModel.updatePost(body.post_id, { responses_count: responses.length });
 
-            return res.render('pages/index.twig', {
+            return res.render('pages/list.responses.twig', {
                 ok: true,
                 message: 'The response was recored correctly!',
                 response,
-                posts
+                post_id: body.post_id,
+                responses
             });
         } else {
             res.render('pages/index.twig');

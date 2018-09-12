@@ -29,7 +29,6 @@ const PostModel = {
                 if (err) {
                     reject(err);
                 } else {
-                    console.log(result)
                     resolve(result);
                 }
             });
@@ -43,7 +42,6 @@ const PostModel = {
                 if (err) {
                     reject(err);
                 } else {
-                    console.log(result)
                     resolve(result);
                 }
             });

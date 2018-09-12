@@ -1,19 +1,64 @@
 
-<div>
-    <a href="add-post">Add Post</a>
-</div>
+<html>
+    <head>
+        <title>Post & Responses</title>
+        <link rel="stylesheet" href="css/bootstrap.css" />
+    </head>
+    <body>
 
-<ul >
-{% for item in posts %}
-    <li>
-        {{ item.post_content }}
-        <a href="add-response/{{item.post_id}}">Responses</a>
-        <small>{{ item.responses_count }}</small>
-        {% if item.responses_count > 0%}
-        <a href="list-responses/{{item.post_id}}">View</a>
-        {% endif %}
+        <div class="bs-docs-header" id="content" tabindex="-1"> 
+            <div class="container">
+                <h1>Post & Responses</h1> 
+                <p></p>
+            </div>
+        </div>
 
-        <small>Created at: {{ item.created_at }}</small>
-    </li>
-{% endfor %}
-</ul>
+        <div class="container bs-docs-container">
+            <div class="row">
+                <div class="col-md-9">
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Post And Responses
+                            <div class="pull-right">
+                                <a class="btn btn-xs btn-primary" href="add-post">Add Post</a>
+                            </div>
+                        </div>
+                        
+                        <div class="panel-body">
+                            <ul class="list-group">
+                            {% for item in posts %}
+                                <li class="list-group-item">
+                                    <h4 class="list-group-item-heading">
+                                        {{ item.post_content }}
+                                        <small>Created at: {{ item.created_at | date("F d Y g:ia") }}</small>
+                                    </h4>
+                                    
+                                    <p class="list-group-item-text">
+                                        Responses
+                                        <span class="badge">
+                                            {{ item.responses_count }}
+                                        </span>
+
+                                        <div class="btn-toolbar" role="toolbar">
+                                            <div class="btn-group" role="group">                                
+                                                {% if item.responses_count > 0%}
+                                                    <a class="btn btn-info btn-xs" href="list-responses/{{item.post_id}}">View</a>
+                                                {% endif %}
+                                                <a class="btn btn-primary btn-xs" href="add-response/{{item.post_id}}">Responses</a>
+                                            </div>
+                                        </div>
+                                    </p>
+                                </li>
+                            {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-3">
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

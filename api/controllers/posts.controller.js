@@ -34,7 +34,7 @@ const postsCtrl = {
                 .then(async(resp) => {
                     let posts = await postsCtrl.getPosts();
 
-                    return res.render('pages/index.twig', {
+                    return res.render('./pages/index.twig', {
                         ok: true,
                         message: 'The post was recored correctly!',
                         post: resp,

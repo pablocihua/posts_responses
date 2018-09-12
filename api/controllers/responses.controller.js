@@ -35,7 +35,7 @@ const responsesCtrl = {
                 ok: true,
                 message: 'The response was recored correctly!',
                 response,
-                post_id: body.post_id,
+                post: await PostCtrl.getPost( body.post_id ),
                 responses
             });
         } else {

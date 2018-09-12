@@ -16,7 +16,7 @@ const PostModel = {
         }
 
         return new Promise((resolve, reject) => {
-            let sql = 'Select * from posts ' + where;
+            let sql = 'Select * from posts ' + where + ' Order By created_at Desc';
             connection_mysql.query(sql, (err, rows) => {
                 if (err) {
                     return reject(err);

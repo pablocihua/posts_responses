@@ -22,7 +22,7 @@ const ResponseModel = {
         }
 
         return new Promise((resolve, reject) => {
-            let sql = "Select * from responses " + where;
+            let sql = "Select * from responses " + where + ' Order By created_at Desc';
             connection_mysql.query(sql, (err, rows) => {
                 if (err) {
                     reject(err);

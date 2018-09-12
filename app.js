@@ -1,9 +1,10 @@
 const express = require('express'),
-      Twig = require('twig'),
-      bodyParser = require('body-parser'),
-      app = express();
+    Twig = require('twig'),
+    bodyParser = require('body-parser'),
+    app = express();
 
-const routerPosts = require('./api/routes/posts');
+const routerPosts = require('./api/routes/posts'),
+    routerResponse = require('./api/routes/responses');
 
 app.set("twig options", {
     allow_async: true,
@@ -16,12 +17,13 @@ app.set("twig options", {
 //     });
 // });
 
-app.use( express.static( __dirname + '/public'));
+app.use(express.static(__dirname + '/public'));
 
-app.use( bodyParser.json() );
-app.use( bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use('/', routerPosts );
+app.use('/', routerResponse);
+app.use('/', routerPosts);
 
 app.listen('3000', () => {
     console.log('Server started on port 3000');

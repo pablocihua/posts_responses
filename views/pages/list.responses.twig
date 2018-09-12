@@ -1,0 +1,13 @@
+
+<div>
+    <h3>Responses</h3>
+</div>
+
+<ul >
+{% for item in responses %}
+    <li>
+        {{ item.response_content }}
+        <small> Created at: {{ item.created_at|date("F d Y g:ia") }}</small>
+    </li>
+{% endfor %}
+</ul>
